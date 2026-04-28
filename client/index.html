@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gymnatorium Booking System</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../logo.png">
+</head>
+
+<body>
+
+    <!-- ========== HEADER & NAVIGATION ========== -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Gymnatorium <span>Booking</span></div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#schedule">Booked Schedule</a>
+                <a href="#contact">Contact</a>
+                <a href="../Admin/login.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <div class="wrapper">
+
+        <!-- ========== HERO SECTION ========== -->
+        <div class="hero section">
+            <!-- Welcome Content -->
+            <div class="hero-content">
+                <h1>Welcome to Our Gymnatorium</h1>
+                <p>Experience world-class facilities perfect for your events. Whether it's a wedding, birthday, graduation, or any special occasion, our state-of-the-art gymnasium is the ideal venue for your gathering.</p>
+                <button class="btn btn-primary" onclick="document.querySelector('.booking-form').scrollIntoView({behavior: 'smooth'})">Start Booking</button>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="booking-form">
+                <h3>Make a Reservation</h3>
+                <form id="bookingForm">
+                    <input type="text" id="firstName" placeholder="First Name" required>
+                    <input type="text" id="lastName" placeholder="Last Name" required>
+                    <input type="email" id="email" placeholder="Email Address" required>
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+
+                    <select id="eventType" required>
+                        <option value="">Select Event Type</option>
+                        <option value="Marriage">Wedding</option>
+                        <option value="Birthday">Birthday Party</option>
+                        <option value="Graduation">Graduation</option>
+                        <option value="Other">Other Event</option>
+                    </select>
+                    <div id="otherEventField" style="display: none; margin-top: var(--spacing-sm);">
+                        <input type="text" id="otherEventType" placeholder="Please input your event" />
+                    </div>
+
+                    <label>Check-In Date</label>
+                    <input type="date" id="checkIn" required>
+
+                    <label>Check-Out Date</label>
+                    <input type="date" id="checkOut" required>
+
+                    <div id="timeFields" style="display: none;">
+                        <label>Time In</label>
+                        <input type="time" id="timeIn">
+
+                        <label>Time Out</label>
+                        <input type="time" id="timeOut">
+                    </div>
+
+                    <select id="guests" required>
+                        <option value="">Number of Guests</option>
+                        <option value="10">10 Guests</option>
+                        <option value="20">20 Guests</option>
+                        <option value="30">30 Guests</option>
+                        <option value="40">40 Guests</option>
+                        <option value="50">50 Guests</option>
+                        <option value="60">60 Guests</option>
+                        <option value="70">70 Guests</option>
+                        <option value="80">80 Guests</option>
+                        <option value="90">90 Guests</option>
+                    </select>
+
+                    <button type="submit" class="btn">Book Now</button>
+                </form>
+
+                <!-- Booking Summary -->
+                <div id="bookingSummary" style="margin-top: var(--spacing-xl); padding-top: var(--spacing-lg); border-top: 2px solid var(--border); display: none;">
+                    <h4 style="margin-bottom: var(--spacing-md); color: var(--primary); font-size: 18px;">📋 Booking Summary</h4>
+                    <div>
+                        <div style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--border-radius); border-left: 4px solid rgba(44, 62, 80, 0.3); text-align: center;">
+                            <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 8px; letter-spacing: 0.5px;">Duration</div>
+                            <div style="font-size: 28px; font-weight: 700; color: var(--primary);" id="summaryDuration">—</div>
+                        </div>
+                        <div style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--border-radius); border-left: 4px solid rgba(231, 76, 60, 0.5); text-align: center;">
+                            <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 8px; letter-spacing: 0.5px;">Guests</div>
+                            <div style="font-size: 28px; font-weight: 700; color: var(--accent);" id="summaryGuests">—</div>
+                        </div>
+                        <div style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--border-radius); border-left: 4px solid rgba(39, 174, 96, 0.3); text-align: center;">
+                            <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 8px; letter-spacing: 0.5px;">Days</div>
+                            <div style="font-size: 28px; font-weight: 700; color: var(--primary);" id="summaryDays">—</div>
+                        </div>
+                        <div style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--border-radius); border-left: 4px solid var(--success); text-align: center;">
+                            <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 8px; letter-spacing: 0.5px;">Status</div>
+                            <div style="font-size: 28px; font-weight: 700; color: var(--success);" id="summaryStatus">✓ Ready</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== FEATURES SECTION ========== -->
+        <section id="services" class="section">
+            <h2 class="text-center mb-xl">Our Premium Services</h2>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <div class="feature-icon">🏋️</div>
+                    <h4>Modern Facilities</h4>
+                    <p>State-of-the-art gymnasium with premium equipment and comfortable amenities for your events.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h4>Easy Booking</h4>
+                    <p>Simple online reservation process that takes just a few minutes. Get instant confirmation!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h4>Flexible Capacity</h4>
+                    <p>Host events with flexible capacity options from 10 to 90 guests. Perfect for any occasion.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h4>Sound & Lighting</h4>
+                    <p>Professional audio and lighting systems to enhance the ambiance and entertainment quality of your event.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h4>Catering Available</h4>
+                    <p>Partner with our trusted catering services or bring your own. Fully equipped kitchen facilities available.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚗</div>
+                    <h4>Ample Parking</h4>
+                    <p>Spacious parking area with dedicated guest parking. Secured and well-lit facility for your peace of mind.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ABOUT SECTION ========== -->
+        <section id="about" class="section">
+            <h2 class="text-center mb-xl">About Our Facility</h2>
+            <div class="card">
+                <p>CTU Daanbantayan Kalambuan Gymnatorium is a premier event venue designed to provide the best experience for your special occasions. With modern infrastructure, professional staff, and excellent service, we are committed to making your event unforgettable.</p>
+                <p>Our facility features spacious halls, state-of-the-art equipment, air conditioning, and ample parking. We cater to weddings, birthday parties, graduations, corporate events, and more.</p>
+            </div>
+        </section>
+
+        <!-- ========== GALLERY SECTION ========== -->
+        <section id="schedule" class="section">
+            <h2 class="text-center mb-xl">Booked Schedule</h2>
+            <p class="text-center" style="margin-bottom: var(--spacing-xl); color: var(--text-muted); font-size: 16px;">See the current reservations already booked by other customers.</p>
+            <div id="scheduleContent"></div>
+        </section>
+
+        <!-- ========== CONTACT SECTION ========== -->
+        <section id="contact" class="section">
+            <h2 class="text-center mb-xl">Get In Touch</h2>
+            <p class="text-center" style="margin-bottom: var(--spacing-xl); color: var(--text-muted); font-size: 16px;">Have questions? We'd love to hear from you. Contact us today!</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <h4>Location</h4>
+                        <p>CTU Daanbantayan Kalambuan<br>Daanbantayan, Cebu, Philippines</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <h4>Phone</h4>
+                        <p>+63 (32) 5678-9012<br>+63 917 123 4567</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">✉️</div>
+                        <h4>Email</h4>
+                        <p>info@gymnarium.edu.ph<br>bookings@gymnarium.edu.ph</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">🕐</div>
+                        <h4>Business Hours</h4>
+                        <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday - Sunday: 8:00 AM - 8:00 PM</p>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="form-container">
+                        <h3>Send Us a Message</h3>
+                        <input type="text" id="contactName" placeholder="Your Name" required>
+                        <input type="email" id="contactEmail" placeholder="Your Email" required>
+                        <input type="tel" id="contactPhone" placeholder="Your Phone Number" required>
+                        <select id="inquiryType" required>
+                            <option value="">Type of Inquiry</option>
+                            <option value="Booking">Booking Information</option>
+                            <option value="Pricing">Pricing & Rates</option>
+                            <option value="Facilities">Facilities Information</option>
+                            <option value="Catering">Catering Services</option>
+                            <option value="Other">Other Inquiry</option>
+                        </select>
+                        <textarea id="contactMessage" placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer style="background: var(--primary); color: var(--white); text-align: center; padding: var(--spacing-xl) var(--spacing-md);">
+        <p>&copy; 2026 Gymnatorium Booking System. All rights reserved.</p>
+        <p class="text-muted">CTU Daanbantayan Kalambuan</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
+

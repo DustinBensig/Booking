@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Gymnatorium Booking</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../logo.png">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Admin Login</h2>
+            <form onsubmit="event.preventDefault(); login();">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

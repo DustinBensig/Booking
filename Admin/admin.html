@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Gymnatorium Booking</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../logo.png">
+</head>
+
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Gymnatorium <span>Booking</span></div>
+            <nav>
+                <a href="../client/index.html">Home</a>
+                <a href="../client/index.html#about">About</a>
+                <a href="../client/index.html#services">Services</a>
+                <a href="admin.html" class="text-accent">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========== ADMIN CONTAINER ========== -->
+    <div class="admin-container">
+
+        <!-- ========== HEADER SECTION ========== -->
+        <div class="admin-header">
+            <h1>Admin Dashboard</h1>
+            <button class="btn-danger btn-small" onclick="logout()">Logout</button>
+        </div>
+
+        <!-- ========== STATS SECTION ========== -->
+        <div class="stats-bar" id="statsBar"></div>
+
+        <!-- ========== TABLE SECTION ========== -->
+        <div class="table-container">
+            <div class="table-scroll">
+                <div class="table-title">Reservations Management</div>
+                <table id="bookingTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Event</th>
+                            <th>Check-In</th>
+                            <th>Check-Out</th>
+                            <th>Time In</th>
+                            <th>Time Out</th>
+                            <th>Duration</th>
+                            <th>Guests</th>
+                            <th>Days</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-state-icon">📭</div>
+                <p>No reservations yet</p>
+            </div>
+        </div>
+
+        <!-- ========== DELETE TABLE SECTION ========== -->
+        <div class="delete-table">
+            <div class="table-scroll">
+                <div class="delete-table-title">Delete Reservations</div>
+                <table id="deleteTable">
+                    <thead>
+                        <tr>
+                            <th>Reservation Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========== INQUIRIES TABLE SECTION ========== -->
+        <div class="table-container" style="margin-top: var(--spacing-xl);">
+            <div class="table-scroll">
+                <div class="table-title">Contact Form Inquiries</div>
+                <table id="inquiriesTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Inquiry Type</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="empty-state" id="emptyInquiriesState" style="display: none;">
+                <div class="empty-state-icon">💌</div>
+                <p>No inquiries yet</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../script.js"></script>
+   
+</body>
+
+</html>
