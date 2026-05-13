@@ -1168,3 +1168,92 @@ textarea::placeholder {
         padding: var(--spacing-md);
     }
 }
+
+/* ============================================
+   RESPONSIVE - TABLET / SMALL DESKTOP
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .header-content {
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    nav {
+        justify-content: flex-end;
+        gap: var(--spacing-md);
+    }
+
+    .hero {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: var(--spacing-xl);
+    }
+
+    .hero-content,
+    .booking-form,
+    .contact-form-wrapper,
+    .login-box,
+    .card,
+    .contact-card {
+        padding: var(--spacing-xl);
+    }
+
+    .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    th,
+    td {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 13px;
+    }
+
+    #bookingSummary > div {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ============================================
+   RESPONSIVE - DESKTOP
+   ============================================ */
+
+@media (min-width: 1201px) {
+    .wrapper {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .hero {
+        gap: var(--spacing-2xl);
+    }
+
+    .hero-content,
+    .booking-form,
+    .contact-form-wrapper {
+        padding: var(--spacing-2xl);
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-card,
+    .stat-card,
+    .contact-card {
+        min-height: 100%;
+    }
+}
